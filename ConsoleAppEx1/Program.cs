@@ -37,10 +37,23 @@ namespace ConsoleAppEx1
                 }
             } */
 
+
+           List<int> numbers = readList();
+            /*Console.WriteLine(ToCommaString(even(numbers)));
+            Console.WriteLine(ToCommaString(odd(numbers)));
+            Console.WriteLine(ToCommaString(firstNumbers(numbers)));
+            Console.WriteLine(maxValue(numbers));
+            Console.WriteLine(ToCommaString(reverseList(numbers)));
+            Console.WriteLine(ToCommaString(orderAsc(numbers))); */
+            menu(numbers);
+        } 
+
+        public static List<int> readList()
+        {
             List<int> numbers = new List<int>();
-            int number = 0;
+            int number;
             int i = 0;
-            bool used = false;
+            bool used;
             do
             {
                 used = true;
@@ -49,19 +62,13 @@ namespace ConsoleAppEx1
                 while (!int.TryParse(Console.ReadLine(), out number))
                 {
                     Console.WriteLine("You entered an invalid number");
-                    used = false; 
-                }               
+                    used = false;
+                }
                 numbers.Add(number);
             } while (number > 0 || used == false);
-
-           Console.WriteLine(ToCommaString(even(numbers)));
-           Console.WriteLine(ToCommaString(odd(numbers)));
-           Console.WriteLine(ToCommaString(firstNumbers(numbers)));
-           Console.WriteLine(maxValue(numbers));
-           Console.WriteLine(ToCommaString(reverseList(numbers)));
-           Console.WriteLine(ToCommaString(orderAsc(numbers))); 
-
-        } 
+            Console.WriteLine("Numbers read! Available queries: \n \n"); 
+            return numbers; 
+        }
 
         public static List<int> even(List<int> list)
         {
@@ -109,6 +116,60 @@ namespace ConsoleAppEx1
             for (int x = 1; x < list.Count; x++)
                 sb.Append("," + list[x].ToString());
             return (sb.ToString());
+        }
+
+        public static void menu(List<int> numbers)
+        {
+            int number;
+            bool exit = false;
+            do
+            {
+
+                Console.WriteLine("Insira a sua opção, qualquer outra além destas sai do programa: \n" +
+                    "1 - Pares;\n" +
+                    "2 - Ímpares\n" +
+                    "3 - Primeiros 3 números\n" +
+                    "4 - Maior Valor\n" +
+                    "5 - Lista Invertida\n" +
+                    "6 - Ordem Ascendente\n");
+                while (!int.TryParse(Console.ReadLine(), out number))
+                {
+                    Console.WriteLine("Write an appropriate number!");
+                }
+                switch (number)
+                {
+                    case 1:
+                        Console.WriteLine(ToCommaString(even(numbers)));
+                        break;
+                    case 2:
+                        Console.WriteLine(ToCommaString(odd(numbers)));
+                        break;
+                    case 3:
+                        Console.WriteLine(ToCommaString(firstNumbers(numbers)));
+                        break;
+                    case 4:
+                        Console.WriteLine(maxValue(numbers));
+                        break;
+                    case 5:
+                        Console.WriteLine(ToCommaString(reverseList(numbers)));
+                        break;
+                    case 6:
+                        Console.WriteLine(ToCommaString(orderAsc(numbers)));
+                        break;
+                    default:
+                        exit = true;
+                        break;
+                }
+                
+                
+               
+               
+                
+                
+
+
+
+            } while (exit == false);
         }
 
     }
