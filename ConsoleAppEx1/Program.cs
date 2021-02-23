@@ -8,44 +8,8 @@ namespace ConsoleAppEx1
     {
         static void Main(string[] args)
         {
-            /*int total = 0;
-            Console.WriteLine("How many numers do you wish to add?");
-            try
-            {
-                do
-                {
-                    total = Int32.Parse(Console.ReadLine());
-                } while (total <= 0);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Insira um número inteiro\n" + ex); ;
-            }
-
-            int[] numberArr = new int[total];
-
-            for (int i = 0; i < total; i++)
-            {
-                try
-                {
-                    Console.WriteLine("Insira o número "+(i+1));
-                    numberArr[i] = Int32.Parse(Console.ReadLine());
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Insira um número inteiro\n" + ex); ;
-                }
-            } */
-
-
            List<int> numbers = readList();
-            /*Console.WriteLine(ToCommaString(even(numbers)));
-            Console.WriteLine(ToCommaString(odd(numbers)));
-            Console.WriteLine(ToCommaString(firstNumbers(numbers)));
-            Console.WriteLine(maxValue(numbers));
-            Console.WriteLine(ToCommaString(reverseList(numbers)));
-            Console.WriteLine(ToCommaString(orderAsc(numbers))); */
-            menu(numbers);
+           menu(numbers);
         } 
 
         public static List<int> readList()
@@ -78,6 +42,7 @@ namespace ConsoleAppEx1
 
         public static List<int> odd(List<int> list)
         {
+
             List<int> oddNumbers = list.Where(i => i % 2 != 0).ToList();
             return oddNumbers;
         }
@@ -160,14 +125,6 @@ namespace ConsoleAppEx1
                         exit = true;
                         break;
                 }
-                
-                
-               
-               
-                
-                
-
-
 
             } while (exit == false);
         }
